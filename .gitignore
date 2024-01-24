@@ -1,0 +1,4 @@
+/venv/
+/docker-compose.env
+/mydatabase
+/app/migrations/0001_initial.py

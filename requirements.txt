@@ -4,3 +4,4 @@ apscheduler~=3.10.4
 djongo~=1.3.6
 sqlparse==0.2.4
 django-elasticsearch-dsl
+pymongo==3.12.3

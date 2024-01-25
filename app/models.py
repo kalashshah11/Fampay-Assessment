@@ -18,8 +18,6 @@ class Video(Model):
 
 
 class Thumbnail(Model):
-    _id = models.TextField()
-    id = models.TextField(primary_key=True)
     video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='thumbnails')
     url = models.URLField()
     width = models.IntegerField()

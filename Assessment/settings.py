@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'app',
     'rest_framework',
     'django_elasticsearch_dsl',
-    'apscheduler',
-    'django_apscheduler'
+    'apscheduler'
 ]
 
 MIDDLEWARE = [
@@ -82,23 +81,16 @@ WSGI_APPLICATION = 'Assessment.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+        'ENGINE': 'djongo',
+        'NAME': 'fampay',
+        'HOST': 'localhost',
+        'PORT': 27017,
     },
     'mongo': {
         'ENGINE': 'djongo',
-        'NAME': 'my_database',
+        'NAME': 'fampay',
         'HOST': 'localhost',
         'PORT': 27017,
-    }
-}
-
-SCHEDULER_CONFIG = {
-    "apscheduler.jobstores.default": {
-        "class": "django_apscheduler.jobstores:DjangoJobStore"
-    },
-    "apscheduler.executors.processpool": {
-        "type": "threadpool"
     }
 }
 

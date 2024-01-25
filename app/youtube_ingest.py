@@ -47,21 +47,18 @@ def youtube_search():
                         channelTitle=item["snippet"]["channelTitle"],
                         channelId=item["snippet"]["channelId"],
                     )
+                    print(video)
                     video.save()
-                    video.save(using="mongo")
                     for resolution, thumbnail in item["snippet"]["thumbnails"].items():
-                        save_id = uuid.uuid4()
                         thumbnail_obj = Thumbnail(
-                            _id=save_id,
-                            id=save_id,
                             video=video,
                             url=thumbnail["url"],
                             width=thumbnail["width"],
                             height=thumbnail["height"],
                             resolution=resolution
                         )
+                        print(thumbnail)
                         thumbnail_obj.save()
-                        thumbnail_obj.save(using="mongo")
                 except django.db.IntegrityError:
                     print("Integrity Error")
                 except mongoerrors.BulkWriteError:
